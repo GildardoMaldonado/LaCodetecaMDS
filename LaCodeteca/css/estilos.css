@@ -1,0 +1,97 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    background-color: #150C15;
+}
+
+.logotipo {
+  width: 40px;
+}
+
+.hdos{
+   /* margin-top: -400px; */
+}
+
+
+.info-producto{
+    background: #0751AB !important;
+    padding: 10px !important;
+}
+
+.tittle{
+    margin: 40px;
+    text-align: center;
+    color: #fff;
+
+}
+
+
+
+.bg-dark {
+    background-color: #1A202C !important;
+    color: #fff;
+}
+
+#footer{
+    padding: 106px 0; 
+    text-align: center; 
+    color: #ffffff; 
+    font-size: 15px;
+}
+
+#footer  .logo-brand{ 
+    width: 40px;
+} 
+
+#footer a{
+    color: #ffffff; 
+    
+}
+
+
+#footer a:hover{
+    color: #C8C8C8; 
+    
+}
+
+
+#footer .list-inline .list-inline-item{
+    
+    padding: 1px 1px;
+    
+}
+
+
+@media (max-width: 575.98px) { 
+    h1{
+        font-size: 29px; line-height: normal;
+    }
+     h2{
+        font-size: 21px; line-height: normal;
+    }
+
+}
+
+
+
+
+/*@media (min-width: 576px) and (max-width: 767.98px) { ... }
+
+
+@media (min-width: 768px) and (max-width: 991.98px) { ... }
+
+
+@media (min-width: 992px) and (max-width: 1199.98px) { ... }
+
+
+@media (min-width: 1200px) { ... }*/
+
