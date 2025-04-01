@@ -8,9 +8,6 @@ Codeteca es una plataforma diseñada para brindar cursos, eventos y recursos edu
 - **Base de Datos:** MySQL.  
 - **Plataformas:** GitHub.  
 
-## 🛠 Estructura del Proyecto  
-
-
 ## 📂 Estructura del Proyecto 
 El repositorio sigue la siguiente organización de archivos y carpetas:  
 
@@ -67,12 +64,6 @@ El repositorio sigue la siguiente organización de archivos y carpetas:
   ### Mantenimientos Preventivos
   - Falta de protección en registros de usuario, en el apartado de registro de usuario no está protegido/hecho para preevenir ante posibles inyecciones SQL.
   - Nula verificación agregado de imágen, falta de una verificación al momento de subir imagenes (Foto de perfil de usuario) para comprobar si se está subiendo el tipo de archivo correcto.
-
-## 🔍 Pruebas y Validaciones
-Para garantizar la calidad del software y la estabilidad del sistema, cada mantenimiento incluirá pruebas unitarias automatizadas. Estas pruebas se ejecutarán en cada actualización para validar que las funcionalidades sigan funcionando correctamente.
-
-### Estrategia de Pruebas
-- **Pruebas Unitarias**: Se probarán módulos individuales del sistema con herramientas como Jest, Mocha o PyTest.
 
 ## 📜 Licencia
 Codeteca, propiedad de Gildardo's Development, se encuentra bajo la gestión y mantenimiento de Piltovers Solutions. El acceso, uso y distribución de este repositorio están sujetos a las condiciones establecidas por las partes involucradas, de acuerdo con las leyes aplicables.
