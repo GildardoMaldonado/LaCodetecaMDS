@@ -74,9 +74,6 @@ Para garantizar la calidad del software y la estabilidad del sistema, cada mante
 ### Estrategia de Pruebas
 - **Pruebas Unitarias**: Se probarán módulos individuales del sistema con herramientas como Jest, Mocha o PyTest.
 
-### Automatización de Pruebas
-- Definir el proceso de pruebas
-
 ## 📜 Licencia
 Codeteca, propiedad de Gildardo's Development, se encuentra bajo la gestión y mantenimiento de Piltovers Solutions. El acceso, uso y distribución de este repositorio están sujetos a las condiciones establecidas por las partes involucradas, de acuerdo con las leyes aplicables.
 
