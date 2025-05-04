@@ -128,7 +128,12 @@ $sesion = $_SESSION['nombre_s'];
                         <div id="modalPrice" class="price"></div>
                         <div id="modalStudents" class="stat-label"></div>
                     </div>
-                    <button class="view-btn" id="inscribirseBtn">Inscribirse</button>
+                    <?php if ($sesion): ?>
+                        <button class="view-btn" id="inscribirseBtn">Inscribirse</button>
+                    <?php else: ?>
+                        <button class="view-btn" id="inscribirseBtn" disabled style="background-color: #ccc; cursor: not-allowed;" title="Inicia sesión para inscribirte">Inscribirse</button>
+                    <?php endif; ?>
+
                 </div>
             </div>
         </div>
