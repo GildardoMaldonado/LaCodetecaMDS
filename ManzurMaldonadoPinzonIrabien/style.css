@@ -390,6 +390,17 @@ img {
     pointer-events: none;
 }
 
+.element {
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
 @keyframes fadeInUp {
     to {
         opacity: 1;
