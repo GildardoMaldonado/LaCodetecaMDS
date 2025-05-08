@@ -1,109 +1,114 @@
+/* === VARIABLES Y RESET === */
+:root {
+  --color-primario: #4A90E2;
+  --color-secundario: #50E3C2;
+  --color-fondo: #FFFFFF;
+  --color-texto: #333333;
+  --fuente-principal: 'Roboto', sans-serif;
+  --espaciado-base: 16px;
+  --radio-borde: 4px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-    font-family: system-ui, -apple-system, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #111827;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+  font-family: var(--fuente-principal);
+  font-size: 16px;
+  color: var(--color-texto);
+  background-color: var(--color-fondo);
+  line-height: 1.5;
 }
 
-h1 {
-    color: #ffc107;
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 1.8rem;
+/* === COMPONENTES GENERALES === */
+button {
+  background-color: var(--color-primario);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radio-borde);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-form {
-    background-color: #1f2937;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    max-width: 400px;
-    width: 100%;
-    text-align: center;
+button:hover {
+  background-color: #357ABD;
 }
 
-input[type="file"] {
-    background-color: #2f3e4e;
-    color: #9ca3af;
-    border: 1px solid #374151;
-    border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 20px;
-    width: 100%;
-    font-size: 1rem;
-    cursor: pointer;
+input, select, textarea {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: var(--radio-borde);
+  width: 100%;
+  margin-bottom: var(--espaciado-base);
 }
 
-input[type="file"]::-webkit-file-upload-button {
-    visibility: hidden;
+/* === CLASE COMÚN PARA SECCIONES === */
+.seccion-comun {
+  padding: var(--espaciado-base);
+  background-color: var(--color-fondo);
+  border-radius: var(--radio-borde);
+  max-width: 800px;
+  margin: 2rem auto;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-input[type="file"]::before {
-    content: 'Seleccionar Archivo';
-    display: inline-block;
-    background: #ffc107;
-    border: 1px solid #e0a800;
-    border-radius: 5px;
-    padding: 5px 10px;
-    outline: none;
-    white-space: nowrap;
-    cursor: pointer;
-    font-size: 1rem;
-    color: black;
+/* === PERFIL === */
+.perfil-titulo {
+  font-size: 1.5rem;
+  color: var(--color-primario);
+  margin-bottom: var(--espaciado-base);
 }
 
-input[type="file"]:hover::before {
-    background-color: #e0a800;
+/* === LOGIN === */
+.login-form input[type="submit"] {
+  background-color: var(--color-primario);
+  color: white;
+  font-weight: bold;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radio-borde);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-button[type="submit"] {
-    background-color: #ffc107;
-    color: black;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
+.login-form input[type="submit"]:hover {
+  background-color: #357ABD;
 }
 
-button[type="submit"]:hover {
-    background-color: #e0a800;
-    color: white;
+/* === SUBIR FOTO === */
+.subir-foto-container {
+  padding: var(--espaciado-base);
+  border: 2px dashed var(--color-primario);
+  border-radius: var(--radio-borde);
+  text-align: center;
+  max-width: 600px;
+  margin: 2rem auto;
 }
 
-#message {
-    margin-top: 20px;
-    font-size: 1rem;
-    color: green;
-    text-align: center;
+.subir-foto-container:hover {
+  background-color: var(--color-secundario);
+  cursor: pointer;
 }
 
-form:hover {
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
+.preview-imagen {
+  margin-top: var(--espaciado-base);
+  max-width: 100%;
+  height: auto;
 }
 
-/* Responsive */
-@media screen and (max-width: 480px) {
-    h1 {
-        font-size: 1.5rem;
-    }
+/* === MODO OSCURO === */
+body.dark-mode {
+  --color-fondo: #1E1E1E;
+  --color-texto: #FFFFFF;
+  --color-primario: #BB86FC;
+  --color-secundario: #03DAC6;
+}
 
-    form {
-        padding: 15px;
-    }
-
-    button[type="submit"] {
-        padding: 8px 16px;
-        font-size: 0.9rem;
-    }
-
-    input[type="file"]::before {
-        font-size: 0.9rem;
-    }
+body.dark-mode .seccion-comun {
+  background-color: #2A2A2A;
+  color: var(--color-texto);
 }

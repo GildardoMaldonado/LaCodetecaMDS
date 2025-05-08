@@ -1,120 +1,114 @@
-/* Estilo básico para el perfil */
+/* === VARIABLES Y RESET === */
+:root {
+  --color-primario: #4A90E2;
+  --color-secundario: #50E3C2;
+  --color-fondo: #FFFFFF;
+  --color-texto: #333333;
+  --fuente-principal: 'Roboto', sans-serif;
+  --espaciado-base: 16px;
+  --radio-borde: 4px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-    background-color: #111827;
-    color: white;
-    font-family: Arial, sans-serif;
+  font-family: var(--fuente-principal);
+  font-size: 16px;
+  color: var(--color-texto);
+  background-color: var(--color-fondo);
+  line-height: 1.5;
 }
 
-/* Estilo del contenedor principal */
-.container {
-    background-color: #1F2937;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-/* Títulos */
-h2 {
-    color: #22D3EE;
-    font-size: 2rem;
-    margin-bottom: 20px;
-}
-
-/* Estilo del formulario */
-.form-group {
-    margin-bottom: 1.5rem;
-}
-
-label {
-    font-size: 1.1rem;
-    color: #22D3EE;
-}
-
-input, select {
-    background-color: #2D3748;
-    color: white;
-    border: 1px solid #3F4C5E;
-    border-radius: 4px;
-    font-size: 1rem;
-    padding: 10px;
-    width: 100%;
-}
-
-input:disabled {
-    background-color: #2D3748;
-    opacity: 0.7;
-}
-
-input:focus, select:focus {
-    border-color: #22D3EE;
-    outline: none;
-}
-
-/* Botones */
+/* === COMPONENTES GENERALES === */
 button {
-    font-size: 1rem;
-    font-weight: bold;
-    padding: 10px 20px;
-    margin-top: 20px;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
+  background-color: var(--color-primario);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radio-borde);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 button:hover {
-    opacity: 0.8;
+  background-color: #357ABD;
 }
 
-/* Botón modificar */
-button.btn-primary {
-    background-color: #22D3EE;
-    color: white;
+input, select, textarea {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: var(--radio-borde);
+  width: 100%;
+  margin-bottom: var(--espaciado-base);
 }
 
-button.btn-primary:hover {
-    background-color: #18A0CC;
+/* === CLASE COMÚN PARA SECCIONES === */
+.seccion-comun {
+  padding: var(--espaciado-base);
+  background-color: var(--color-fondo);
+  border-radius: var(--radio-borde);
+  max-width: 800px;
+  margin: 2rem auto;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Botón regresar */
-button.btn-secondary {
-    background-color: #4B5563;
-    color: white;
+/* === PERFIL === */
+.perfil-titulo {
+  font-size: 1.5rem;
+  color: var(--color-primario);
+  margin-bottom: var(--espaciado-base);
 }
 
-button.btn-secondary:hover {
-    background-color: #2D3748;
+/* === LOGIN === */
+.login-form input[type="submit"] {
+  background-color: var(--color-primario);
+  color: white;
+  font-weight: bold;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radio-borde);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-/* Botón eliminar cuenta */
-button.btn-danger {
-    background-color: #DC2626;  /* Rojo fuerte */
-    color: white;
+.login-form input[type="submit"]:hover {
+  background-color: #357ABD;
 }
 
-button.btn-danger:hover {
-    background-color: #B91C1C;  /* Rojo más oscuro al hacer hover */
+/* === SUBIR FOTO === */
+.subir-foto-container {
+  padding: var(--espaciado-base);
+  border: 2px dashed var(--color-primario);
+  border-radius: var(--radio-borde);
+  text-align: center;
+  max-width: 600px;
+  margin: 2rem auto;
 }
 
-/* Estilo de los mensajes de éxito o error */
-.alert-info {
-    background-color: #22D3EE;
-    color: #111827;
-    font-weight: bold;
-    padding: 10px;
-    margin-bottom: 20px;
-    border-radius: 5px;
+.subir-foto-container:hover {
+  background-color: var(--color-secundario);
+  cursor: pointer;
 }
 
-.alert-info a {
-    color: #111827;
-    text-decoration: none;
+.preview-imagen {
+  margin-top: var(--espaciado-base);
+  max-width: 100%;
+  height: auto;
 }
 
-.alert-info a:hover {
-    text-decoration: underline;
+/* === MODO OSCURO === */
+body.dark-mode {
+  --color-fondo: #1E1E1E;
+  --color-texto: #FFFFFF;
+  --color-primario: #BB86FC;
+  --color-secundario: #03DAC6;
 }
 
-/* Agregar un margen al final de la página */
-footer {
-    margin-top: 40px;
+body.dark-mode .seccion-comun {
+  background-color: #2A2A2A;
+  color: var(--color-texto);
 }

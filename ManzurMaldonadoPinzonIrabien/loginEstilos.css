@@ -1,83 +1,114 @@
+/* === VARIABLES Y RESET === */
 :root {
-    --color-dark: #15181f;
-    --color-dark-x: #2d343f;
-    --color-dark-xx: #1f232b;
-    --color-light: #ffffff;
-    --color-grey: #f5f6f8;
+  --color-primario: #4A90E2;
+  --color-secundario: #50E3C2;
+  --color-fondo: #FFFFFF;
+  --color-texto: #333333;
+  --fuente-principal: 'Roboto', sans-serif;
+  --espaciado-base: 16px;
+  --radio-borde: 4px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
-    font-size: 1.0rem;
-    font-weight: 300;
-    background-color: var(--color-dark);
-    color: var(--color-light);
-    letter-spacing: .05rem;
+  font-family: var(--fuente-principal);
+  font-size: 16px;
+  color: var(--color-texto);
+  background-color: var(--color-fondo);
+  line-height: 1.5;
 }
 
-.bg-light {
-    background-color: var(--color-light) !important;
+/* === COMPONENTES GENERALES === */
+button {
+  background-color: var(--color-primario);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radio-borde);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.bg-dark {
-    background-size: cover;
-    background: url(imagenes/) !important;
+button:hover {
+  background-color: #357ABD;
 }
 
-.p-6 {
-    padding: 4rem 7rem;
+input, select, textarea {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: var(--radio-borde);
+  width: 100%;
+  margin-bottom: var(--espaciado-base);
 }
 
-.contact-box {
-    padding: 3rem;
+/* === CLASE COMÚN PARA SECCIONES === */
+.seccion-comun {
+  padding: var(--espaciado-base);
+  background-color: var(--color-fondo);
+  border-radius: var(--radio-borde);
+  max-width: 800px;
+  margin: 2rem auto;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.btn {
-    font-weight: 400;
-    padding: 1rem 2rem;
-    border-radius: 5rem;
-    min-width: 10rem;
+/* === PERFIL === */
+.perfil-titulo {
+  font-size: 1.5rem;
+  color: var(--color-primario);
+  margin-bottom: var(--espaciado-base);
 }
 
-.btn-outline-dark {
-    border: 2px solid var(--color-dark-xx);
+/* === LOGIN === */
+.login-form input[type="submit"] {
+  background-color: var(--color-primario);
+  color: white;
+  font-weight: bold;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radio-borde);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-
-.form-control {
-    background-color: var(--color-dark-xx);
-    border: 2px solid var(--color-dark-xx);
-    border-radius: .2rem;
-    padding: 1.5rem 1rem;
+.login-form input[type="submit"]:hover {
+  background-color: #357ABD;
 }
 
-.register-bg {
-    background-image: url('../imagenes/portada.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    min-height: 100vh;
+/* === SUBIR FOTO === */
+.subir-foto-container {
+  padding: var(--espaciado-base);
+  border: 2px dashed var(--color-primario);
+  border-radius: var(--radio-borde);
+  text-align: center;
+  max-width: 600px;
+  margin: 2rem auto;
 }
 
-.testiomonial {
-    bottom: 10px
+.subir-foto-container:hover {
+  background-color: var(--color-secundario);
+  cursor: pointer;
 }
 
-@media (max-width: 575.98px) {
-    .p-6 {
-        padding: 2rem;
-    }
-
-    .contact-box {
-        padding: 0;
-    }
-
-    .width-100 {
-        width: 100%;
-    }
+.preview-imagen {
+  margin-top: var(--espaciado-base);
+  max-width: 100%;
+  height: auto;
 }
 
-@media (max-width: 1200px) {
-    .register-bg {
-        min-height: 50vh;
-    }
+/* === MODO OSCURO === */
+body.dark-mode {
+  --color-fondo: #1E1E1E;
+  --color-texto: #FFFFFF;
+  --color-primario: #BB86FC;
+  --color-secundario: #03DAC6;
+}
+
+body.dark-mode .seccion-comun {
+  background-color: #2A2A2A;
+  color: var(--color-texto);
 }
