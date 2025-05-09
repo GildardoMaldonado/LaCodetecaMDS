@@ -16,12 +16,11 @@ if (!empty($_POST['correo']) && !empty($_POST['contrasenia']) && !empty($_POST['
         exit;
     }
 
-    // Encriptar la contraseña antes de insertarla
-    $contrasenia_encriptada = password_hash($contrasenia, PASSWORD_DEFAULT);
-
-    // Inserción segura usando consultas preparadas
-    $stmt = $conexion->prepare("INSERT INTO usuarios (correo, contrasenia, nombre) VALUES (?, ?, ?)");
-    $stmt->bind_param("sss", $correo, $contrasenia_encriptada, $nombre);
+    // En la parte de inserción del usuario:
+$contrasenia_encriptada = password_hash($_POST['contrasenia'], PASSWORD_DEFAULT);
+$stmt = $conexion->prepare("INSERT INTO usuarios (correo, contrasenia, nombre, es_admin) VALUES (?, ?, ?, ?)");
+$es_admin = 0; // Por defecto no es admin
+$stmt->bind_param("sssi", $correo, $contrasenia_encriptada, $nombre, $es_admin);
 
     if ($stmt->execute()) {
         $destino = $correo;

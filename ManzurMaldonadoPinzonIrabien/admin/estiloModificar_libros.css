@@ -1,0 +1,133 @@
+:root {
+  --color-dark: #15181f;
+  --color-dark-x: #2d343f;
+  --color-dark-xx: #1f232b;
+  --color-light: #ffffff;
+  --color-primary: #4e73df;
+  --color-danger: #e74a3b;
+  --transition: all 0.3s ease;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-hover: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--color-dark);
+  color: var(--color-light);
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 960px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+h1, h2 {
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+
+.form-container {
+  background-color: var(--color-dark-x);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 2px solid var(--color-dark-xx);
+  background-color: var(--color-dark-xx);
+  color: var(--color-light);
+  border-radius: 0.25rem;
+  margin-bottom: 1rem;
+  transition: var(--transition);
+}
+
+input[type="text"]:focus,
+textarea:focus {
+  border-color: var(--color-primary);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(78, 115, 223, 0.25);
+}
+
+.btn {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  font-weight: 500;
+  margin-right: 0.5rem;
+  transition: var(--transition);
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: #3a60d9;
+  box-shadow: var(--shadow-hover);
+}
+
+.btn-secondary {
+  background-color: var(--color-dark-x);
+  color: #fff;
+}
+
+.btn-secondary:hover {
+  background-color: #3a3f4c;
+  box-shadow: var(--shadow-hover);
+}
+
+.btn-danger {
+  background-color: var(--color-danger);
+  color: #fff;
+}
+
+.btn-danger:hover {
+  background-color: #c0392b;
+  box-shadow: var(--shadow-hover);
+}
+
+.btn-outline-dark {
+  background-color: transparent;
+  color: var(--color-light);
+  border: 1px solid var(--color-light);
+}
+
+.btn-outline-dark:hover {
+  background-color: var(--color-light);
+  color: var(--color-dark);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.table th,
+.table td {
+  padding: 0.8rem;
+  border-bottom: 1px solid var(--color-dark-x);
+  text-align: left;
+}
+
+.table thead {
+  background-color: var(--color-dark-x);
+}
+
+.table tbody tr:hover {
+  background-color: var(--color-dark-xx);
+}
