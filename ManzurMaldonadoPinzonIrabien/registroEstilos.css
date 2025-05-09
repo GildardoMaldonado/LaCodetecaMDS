@@ -178,7 +178,7 @@
     border-left: 3px solid #2eb85c;
   }
   
-  /* === RESPONSIVE === */
+  /* media para adaptar paginas pequeñas */
   @media (max-width: 1200px) {
     .register-bg {
       min-height: 40vh;

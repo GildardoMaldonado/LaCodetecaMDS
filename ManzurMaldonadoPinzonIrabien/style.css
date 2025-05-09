@@ -197,7 +197,7 @@ img {
     margin: 0;
 }
 
-/* Media queries para dispositivos móviles */
+/* Media queries para dispositivos móviles y tabletas */
 @media (max-width: 768px) {
     .card {
         width: 100%;

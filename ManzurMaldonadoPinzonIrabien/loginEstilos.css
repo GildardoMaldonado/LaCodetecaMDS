@@ -217,7 +217,7 @@ body.dark-mode textarea {
   border-color: var(--color-dark-xx);
 }
 
-/* === RESPONSIVE MEJORADO === */
+/* media para adaptar paginas pequeñas */
 @media (max-width: 575.98px) {
   .seccion-comun {
     padding: 1.5rem;
