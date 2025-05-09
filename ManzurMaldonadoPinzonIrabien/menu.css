@@ -302,6 +302,7 @@ nav ul {
     }
 }
 
+/* media para adaptar paginas pequeñas */
 @media print {
     /* Ajustar fuentes para mejor legibilidad */
     body {

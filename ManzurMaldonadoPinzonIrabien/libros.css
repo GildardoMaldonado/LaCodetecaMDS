@@ -264,6 +264,7 @@ body {
     margin: 1rem 0;
 }
 
+/* media para adaptar paginas pequeñas */
 @media (max-width: 1400px) {
     .books-container {
         grid-template-columns: 1fr;
