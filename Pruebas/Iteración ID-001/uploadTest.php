@@ -1,17 +1,31 @@
 <?php
 use PHPUnit\Framework\TestCase;
 
-require_once __DIR__ . '/../uploadLogic.php';
+require_once __DIR__ . '/uploadLogic.php';
 
 class UploadTest extends TestCase
 {
     private function crearArchivoTemporal($tipoMime = 'image/jpeg', $extension = 'jpg', $tamaño = 500000) {
         $tmpFile = tempnam(sys_get_temp_dir(), 'img_');
-        file_put_contents($tmpFile, str_repeat('x', $tamaño));
+
+        // Ajustar tamaño dinámicamente si se requiere uno específico
+        $dimension = $tamaño > 2000000 ? 3000 : 100;
+        $imagen = imagecreatetruecolor($dimension, $dimension);
+
+        if ($extension === 'png') {
+            imagepng($imagen, $tmpFile);
+        } elseif ($extension === 'gif') {
+            imagegif($imagen, $tmpFile);
+        } else {
+            imagejpeg($imagen, $tmpFile, 100); // calidad alta
+        }
+
+        imagedestroy($imagen);
+
         return [
             'name' => 'prueba.' . $extension,
             'tmp_name' => $tmpFile,
-            'size' => $tamaño,
+            'size' => filesize($tmpFile),
             'type' => $tipoMime,
             'error' => 0
         ];
@@ -20,7 +34,7 @@ class UploadTest extends TestCase
     public function testSubidaCorrectaJPG()
     {
         $file = $this->crearArchivoTemporal();
-        $this->assertTrue(procesarSubidaDeImagen('usuario_test', $file)['success']);
+        $this->assertTrue(procesarSubidaDeImagen('usuario_test', $file, true)['success']);
     }
 
     public function testSubidaArchivoNoImagen()
@@ -35,7 +49,7 @@ class UploadTest extends TestCase
             'type' => 'text/plain',
             'error' => 0
         ];
-        $resultado = procesarSubidaDeImagen('usuario_test', $file);
+        $resultado = procesarSubidaDeImagen('usuario_test', $file, true);
         $this->assertFalse($resultado['success']);
         $this->assertEquals('El archivo no es una imagen.', $resultado['message']);
     }
@@ -43,7 +57,8 @@ class UploadTest extends TestCase
     public function testArchivoMuyGrande()
     {
         $file = $this->crearArchivoTemporal('image/png', 'png', 3000000);
-        $resultado = procesarSubidaDeImagen('usuario_test', $file);
+        $file['size'] = 3000001; // Forzar que sea mayor a 2MB
+        $resultado = procesarSubidaDeImagen('usuario_test', $file, true);
         $this->assertFalse($resultado['success']);
         $this->assertEquals('El archivo es demasiado grande.', $resultado['message']);
     }
@@ -51,8 +66,21 @@ class UploadTest extends TestCase
     public function testExtensionNoPermitida()
     {
         $file = $this->crearArchivoTemporal('image/gif', 'gif');
-        $resultado = procesarSubidaDeImagen('usuario_test', $file);
+        $resultado = procesarSubidaDeImagen('usuario_test', $file, true);
         $this->assertFalse($resultado['success']);
         $this->assertEquals('Solo se permiten archivos JPG, JPEG y PNG.', $resultado['message']);
     }
+
+    protected function tearDown(): void
+    {
+        // Eliminar archivos temporales
+        $uploadsDir = 'uploads/';
+        if (is_dir($uploadsDir)) {
+            $archivos = glob($uploadsDir . '*');
+            foreach ($archivos as $archivo) {
+                unlink($archivo);
+            }
+        }
+    }
+
 }
