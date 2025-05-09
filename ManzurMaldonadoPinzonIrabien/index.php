@@ -1,8 +1,15 @@
 <?php
 session_start();
-error_reporting(0);
-$sesion = $_SESSION['nombre_s'];
+error_reporting(E_ALL);
+
+// Obtener variables de sesión si existen
+$sesion = isset($_SESSION['nombre_s']) ? $_SESSION['nombre_s'] : null;
+$es_admin = isset($_SESSION['admin']) ? $_SESSION['admin'] : false;
+
+// DEBUG solo durante desarrollo, puedes quitar esto después
+// echo '<pre>Sesión actual: '; print_r($_SESSION); echo '</pre>';
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -66,15 +73,21 @@ $sesion = $_SESSION['nombre_s'];
             <?php else: ?>
                 <a href="subirFoto.php">Cambiar Foto de Perfil</a>
             <?php endif; ?>
+
+            <?php if ($es_admin): ?>
+                <a href="admin/modificar_libros.php">Modificar Libros</a>
+                <a href="admin/gestionar_usuarios.php">Gestionar Usuarios</a>
+            <?php endif; ?>
         </div>
     <?php else: ?>
-        <button class="dropdown-button">Invitado</button> 
+        <button class="dropdown-button">Invitado</button>
         <div class="dropdown-content">
             <a href="login.php">Iniciar Sesión</a>
             <a href="Registro.php">Registrarse</a>
         </div>
     <?php endif; ?>
 </li>
+
 
 
 
