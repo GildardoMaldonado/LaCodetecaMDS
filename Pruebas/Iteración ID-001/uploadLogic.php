@@ -1,5 +1,5 @@
 <?php
-function procesarSubidaDeImagen($nombreUsuario, $archivo) {
+function procesarSubidaDeImagen($nombreUsuario, $archivo, $modoTest = false) {
     $targetDir = "uploads/";
     $targetFile = $targetDir . $nombreUsuario . ".jpg";
     $imageFileType = strtolower(pathinfo($archivo['name'], PATHINFO_EXTENSION));
@@ -17,7 +17,15 @@ function procesarSubidaDeImagen($nombreUsuario, $archivo) {
         return ['success' => false, 'message' => 'Solo se permiten archivos JPG, JPEG y PNG.'];
     }
 
-    if (move_uploaded_file($archivo['tmp_name'], $targetFile)) {
+    if (!is_dir($targetDir)) {
+        mkdir($targetDir, 0777, true);
+    }
+
+    $resultado = $modoTest
+        ? rename($archivo['tmp_name'], $targetFile)
+        : move_uploaded_file($archivo['tmp_name'], $targetFile);
+
+    if ($resultado) {
         return ['success' => true, 'message' => 'La foto de perfil se subió correctamente.'];
     } else {
         return ['success' => false, 'message' => 'Error al subir el archivo.'];
