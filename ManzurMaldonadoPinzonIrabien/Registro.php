@@ -3,7 +3,7 @@ include 'conexionBD.php';
 $mensaje = '';
 
 if (!empty($_POST['correo']) && !empty($_POST['contrasenia']) && !empty($_POST['nombreu'])) {
-    // Sanea las entradas para evitar inyección SQL y código malicioso
+    // Sanea las entradas para evitar inyección SQL y código malicioso, no las ejecuta, solo las inserta como texto
     $correo = mysqli_real_escape_string($conexion, $_POST['correo']);
     $contrasenia = htmlspecialchars($_POST['contrasenia'], ENT_QUOTES, 'UTF-8');
     $nombre = htmlspecialchars($_POST['nombreu'], ENT_QUOTES, 'UTF-8');
