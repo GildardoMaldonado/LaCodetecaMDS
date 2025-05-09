@@ -1,4 +1,5 @@
 <?php
+session_start();
 include 'conexionBD.php';
 $mensaje = '';
 
@@ -8,7 +9,7 @@ if (!empty($_POST['correo']) && !empty($_POST['contrasenia']) && !empty($_POST['
     $contrasenia = htmlspecialchars($_POST['contrasenia'], ENT_QUOTES, 'UTF-8');
     $nombre = htmlspecialchars($_POST['nombreu'], ENT_QUOTES, 'UTF-8');
 
-    // Verificar si el usuario ya está registrado
+    // Verificar si el usuario ya está registrado, en caso de estarlo no se agrega a la bd
     $verificar_usuario = mysqli_query($conexion, "SELECT * FROM usuarios WHERE correo = '$correo'");
     if (mysqli_num_rows($verificar_usuario) > 0) {
         $mensaje = 'El usuario ya está registrado';
@@ -37,7 +38,6 @@ $stmt->bind_param("sssi", $correo, $contrasenia_encriptada, $nombre, $es_admin);
     $mensaje = 'Por favor, completa todos los campos';
 }
 ?>
-
 
 <!doctype html>
 <html lang="en">
